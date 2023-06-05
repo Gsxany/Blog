@@ -1,0 +1,70 @@
+name: 打包应用并上传到腾讯云
+
+# 设置事件，将来 push 代码的时候的对应 哪个分支 会受到影响。
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    # runs-on 指定 job 任务运行所需要的虚拟机环境(必填字段)
+    runs-on: ubuntu-latest
+    steps:
+      # 获取源码
+      - name: 迁出代码
+        # 使用 actions 库， actions/checkout 获取源码
+        uses: actions/checkout@master
+
+      # 安装 Node
+      - name: 安装 NodeJs
+        # 使用 actions 库， actions/setup-node 安装 Node
+        uses: actions/setup-node@v1
+        with:
+          # 版本需要 大于14~ 指定 Node 版本 14.18.1
+          node-version: 14.18.1
+
+      # 标注一下，经过测试，这种方式没用，进入 client(React) 目录...
+      # - name: 进入 client 项目
+      #   run: cd client
+
+      # 安装依赖 - MainBox
+      - name: MainBox - 安装依赖
+        run: npm install
+
+      # 安装依赖 - PC
+      - name: client - 安装依赖
+        run: cd client && npm install
+
+      # 打包 - PC
+      - name: client - 打包
+        run: cd client && npm run build
+
+      # 安装依赖 - Mobile
+      - name: mobile - 安装依赖
+        run: cd mobile && npm install
+
+      # 打包 - Mobile
+      - name: mobile - 打包
+        run: cd mobile && npm run build
+
+      # 上传腾讯云
+      - name: 发布到腾讯云
+        # 使用 ssh 的命令行的方式~
+        uses: easingthemes/ssh-deploy@v2.1.6
+        env:
+          # 私钥
+          # 项目 - Settings -> Secrets - 配置私钥 - 复制本地链接远端的私钥到GitHub
+          SSH_PRIVATE_KEY: ${{ secrets.BLOG_PRIVATE_KEY }}
+          # scp 参数
+          ARGS: "-avzr --delete"
+          # 源目录
+          SOURCE: "/"
+          # 服务器ip
+          REMOTE_HOST: "101.43.136.177"
+          # 用户
+          REMOTE_USER: "root"
+          # 目标地址
+          TARGET: "/gsxany/code/web"
+          # 排除 node_modules ~
+          EXCLUDE: "/**/node_modules/, /node_modules/"
