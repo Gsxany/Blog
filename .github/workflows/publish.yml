@@ -65,6 +65,6 @@ jobs:
           # 用户
           REMOTE_USER: "root"
           # 目标地址
-          TARGET: "/gsxany/code/web"
+          TARGET: "/gsxany/code/blog"
           # 排除 node_modules ~
           EXCLUDE: "/**/node_modules/, /node_modules/"
