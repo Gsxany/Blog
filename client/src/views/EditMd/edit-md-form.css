@@ -1,0 +1,24 @@
+.mark__editor--box {
+  background-color: #f6f6f6;
+}
+
+.mark__editor--box .ant-form {
+}
+
+.mark__editor--box .ant-form-item-label {
+  width: 12rem;
+}
+
+.mark__editor--box .ant-form-item input,
+.mark__editor--box .ant-form-item textarea {
+  width: 50rem;
+  background-color: #fff;
+  border-color: #999;
+  border-style: solid;
+  border-width: 0px 0px 1px;
+}
+
+.mark__editor--box .for-container {
+  width: 100vw;
+  height: 80rem;
+}

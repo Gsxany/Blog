@@ -1,0 +1,10 @@
+{
+  "name": "webhooks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "pm2 start ./deploy.js --name deploy --watch",
+    "stop": "pm2 stop deploy"
+  }
+}

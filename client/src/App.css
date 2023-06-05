@@ -1,0 +1,18 @@
+/* 全局样式 */
+html {
+  /* 
+    rem - 相对 根 元素的 font-size
+    em - 相对 父 元素的 font-size
+    1rem - 就相当于 1个 font-size 的单位。 - 10px;
+    62.5% - 是因为 🍓🍓🍓 浏览器默认的像素是 16px； 16 * 62.5 = 10px;
+  */
+  font-size: 62.5%;
+}
+
+/*
+  viewport height === vh 视口高度 
+  1vh 是视口高度的 1%
+*/
+html body #root .App {
+  min-height: 100vh;
+}
