@@ -92,7 +92,7 @@ export const About: FC = () => {
         <Body className="ul--style">
           <ul>
             <li>
-              <p>2023.07.05，搭建个人博客并更新第一条博客。ଘ(੭ˊᵕˋ)੭ </p>
+              <p>2023.07.17，搭建个人博客并更新第一条博客。ଘ(੭ˊᵕˋ)੭ </p>
               <p>
                 「<TextTag>React + Ts</TextTag>」- PC端、 「
                 <TextTag>Vue + VitePress</TextTag>」- 移动端、 「
@@ -100,7 +100,7 @@ export const About: FC = () => {
               </p>
             </li>
             <li>
-              <p>2023.07.13，博客导航栏新增文章检索功能。づ♡ど </p>
+              <p>2023.07.21，博客导航栏新增文章检索功能。づ♡ど </p>
             </li>
           </ul>
         </Body>

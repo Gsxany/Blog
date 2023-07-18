@@ -75,7 +75,7 @@ module.exports = (router) => {
    * @params id-blogID && Blog.Schema
    */
   router.put("/blog/update", async (ctx, next) => {
-    const updateTime = +new Date("2023-07-17 00:00:00");
+    const updateTime = +new Date();
     const blogData = ctx.request.body;
 
     const id = blogData.id;
